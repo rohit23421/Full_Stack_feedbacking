@@ -1,12 +1,12 @@
 import { STATUS_ORDER } from "@/app/data/status-data";
 import { prisma } from "@/lib/prisma";
-import { auth } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function PATCH(request: NextRequest, {params}: {params: Promise<{id : number}>}) {
     try {
         //fetching userid from clerk - auth()
-        const {userId} = await auth;
+        const {userId} = await auth();
         if(!userId){
             return NextResponse.json({error: "Unauthorized"}, { status: 401})    
         }
@@ -26,6 +26,7 @@ export async function PATCH(request: NextRequest, {params}: {params: Promise<{id
         //if this deosnt happen then we are takig the status from our response, by changing the status of feedback
         const {status} = await request.json();
         const {id: postId} = await params
+        const numericPostId = Number(postId)
 
         //VALIDATE STATUS FROM THE TYPE STATUS WE CREATED IN STATUS-DATA
         if(!STATUS_ORDER.includes(status)){
@@ -34,7 +35,7 @@ export async function PATCH(request: NextRequest, {params}: {params: Promise<{id
 
         const updatedPost = await prisma.post.update({
             where: {
-                id: postId
+                id: numericPostId
             },
             data: {
                 status
