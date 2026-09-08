@@ -22,22 +22,18 @@ export default function HomePage() {
       >
         <div className="flex gap-4 justify-center pt-4">
           <Button
-            asChild
+            render={<Link href="/feedback/new" />}
             size="lg"
             className="bg-white text-blue-600 hover:bg-gray-100"
           >
-            <Link href="/feedback/new">
-              Submit Feedback <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
+            Submit Feedback <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
           <Button
-            asChild
+            render={<Link href="/roadmap" />}
             size="lg"
             className="bg-white text-black hover:bg-gray-100"
           >
-            <Link href="/roadmap">
-              View Roadmap <Map className="ml-2 h-4 w-4" />
-            </Link>
+            View Roadmap <Map className="ml-2 h-4 w-4" />
           </Button>
         </div>
       </GradiantHeader>

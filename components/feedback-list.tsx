@@ -13,7 +13,7 @@ import { MessageSquare, ThumbsUp, User } from "lucide-react";
 import { Badge } from "./ui/badge";
 import { STATUS_GROUPS } from "@/app/data/status-data";
 import { getCategoryDesign } from "@/app/data/category-data";
-import { Button } from "@base-ui/react/button";
+import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 
 export default function FeedbackList({

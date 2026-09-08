@@ -11,9 +11,10 @@ import {
   TableRow,
 } from "./ui/table";
 import { getCategoryDesign } from "@/app/data/category-data";
-import { Badge, Edit, Save, ThumbsUp, User, UserIcon, X } from "lucide-react";
+import { Edit, Save, ThumbsUp, User, UserIcon, X } from "lucide-react";
 import { STATUS_GROUPS, STATUS_ORDER } from "@/app/data/status-data";
 import { Button } from "./ui/button";
+import { Badge } from "./ui/badge";
 import {
   Select,
   SelectValue,

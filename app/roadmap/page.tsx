@@ -8,14 +8,8 @@ import {
 } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { prisma } from "@/lib/prisma";
-import {
-  Badge,
-  BarChart3,
-  CheckCheck,
-  Clock,
-  Icon,
-  Target,
-} from "lucide-react";
+import { BarChart3, CheckCheck, Clock, Icon, Target } from "lucide-react";
+import { Badge } from "../../components/ui/badge";
 import { STATUS_GROUPS, STATUS_ORDER } from "../data/status-data";
 import { group } from "console";
 

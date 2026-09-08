@@ -7,9 +7,10 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { prisma } from "@/lib/prisma";
-import { Button } from "@base-ui/react/button";
+import { Button } from "@/components/ui/button";
 import { auth } from "@clerk/nextjs/server";
-import { Badge, Map, PlusIcon } from "lucide-react";
+import { Map, PlusIcon } from "lucide-react";
+import { Badge } from "../../components/ui/badge";
 import Link from "next/link";
 import { getCategoryDesign } from "../data/category-data";
 import FeedbackList from "@/components/feedback-list";
@@ -42,24 +43,20 @@ export default async function FeedbackPage() {
         >
           <div className="flex gap-4 justify-center pt-4">
             <Button
-              asChild
+              render={<Link href="/feedback/new" />}
               size="lg"
               className="bg-white text-blue-600 hover:bg-gray-100"
             >
-              <Link href="/feedback/new">
-                <PlusIcon className="ml-2 h-4 w-4" />
-                New Feedback
-              </Link>
+              <PlusIcon className="ml-2 h-4 w-4" />
+              New Feedback
             </Button>
             <Button
-              asChild
+              render={<Link href="/roadmap" />}
               size="lg"
               className="bg-white text-black hover:bg-gray-100"
             >
-              <Link href="/roadmap">
-                <Map className="ml-2 h-4 w-4" />
-                View Roadmap
-              </Link>
+              <Map className="ml-2 h-4 w-4" />
+              View Roadmap
             </Button>
           </div>
         </GradiantHeader>
