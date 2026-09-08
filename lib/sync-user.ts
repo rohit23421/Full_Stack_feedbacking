@@ -57,8 +57,12 @@ export async function syncCurrentUser(){
             
         }
         return dbUser;
-    } catch (error) {
-        console.log("Error syncing user frmo clerk to DB:", error);
-        throw error
+    } catch (error: any) {
+        // Don't log Next.js's internal dynamic-rendering signal as a real error
+        if (error?.digest === "DYNAMIC_SERVER_USAGE") {
+            throw error; // let Next.js handle it silently
+        }
+        console.log("Error syncing user frmo Clerk to DB:", error);
+        throw error;
     }
 }
