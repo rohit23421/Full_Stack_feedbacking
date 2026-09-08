@@ -1,8 +1,8 @@
 import { prisma } from "@/lib/prisma";
 import { syncCurrentUser } from "@/lib/sync-user";
-import { NextResponse } from "next/server";
+import { NextRequest,NextResponse } from "next/server";
 
-export async function POST(request : NextResponse){
+export async function POST(request : NextRequest){
     try{
         //first check if user is present or nto to be able to give feedback, by calling the syncfunction we created
         const dbUser = await syncCurrentUser();
