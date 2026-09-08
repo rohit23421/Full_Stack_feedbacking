@@ -3,7 +3,7 @@ import { prisma } from "@/lib/prisma";
 import { auth } from "@clerk/nextjs/server";
 import { NextRequest, NextResponse } from "next/server";
 
-export async function PATCH(request: NextRequest, {params}: {params: Promise<{id : number}>}) {
+export async function PATCH(request: NextRequest, {params}: {params: Promise<{id : string}>}) {
     try {
         //fetching userid from clerk - auth()
         const {userId} = await auth();
